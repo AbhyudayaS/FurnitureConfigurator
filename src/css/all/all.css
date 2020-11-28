@@ -1,0 +1,212 @@
+/* Import reset for HTML element styling. */
+@import './_reset.css';
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+/* .wrapper {
+  text-align: left;
+} */
+
+@media (orientation: landscape) {
+  body {
+    margin: 0;
+    width: 100vh;
+  }
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 6em;
+  height: 6em;
+  margin: -5em 0 0 -3em;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.8em solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.texturePanel {
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+  display: flex;
+  width: 50vmin;
+  height: 10vmin;
+}
+
+.texturePanel > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  margin: 0 5px;
+  border: 0 solid black;
+}
+
+.btn-group {
+  position: fixed;
+  top: 5em;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sidepanel {
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  height: 31em;
+  top: 11em;
+  left: 0;
+  background-color: blanchedalmond;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
+}
+
+.sidepanel a {
+  padding: 0.5px 2px 2px 20px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidepanel a:hover {
+  color: black;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 1px;
+  font-size: 36px;
+}
+
+.logo {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 1%;
+  width: 40vmin;
+  height: 12vmin;
+}
+
+.openbtn {
+  position: absolute;
+  display: inline-block;
+  top: 10em;
+  background-color: blanchedalmond;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  font-size: 1vw;
+  padding: 1em 1em 1em 1em;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+canvas {
+  display: block;
+}
+
+.switch {
+  position: absolute;
+  display: block;
+  width: 6.5em;
+  height: 2em;
+  bottom: 17vmin;
+  left: 1.5em;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 1.3em;
+  width: 1.3em;
+  left: 0.4em;
+  bottom: 0.4em;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: brown;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(1.3em);
+  -ms-transform: translateX(1.3em);
+  transform: translateX(4.25em);
+}
+
+/* ------ ADDED CSS --------- */
+
+.slider::after {
+  content: 'CLOSE';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 15px;
+  font-family: Verdana, sans-serif;
+}
+
+input:checked + .slider::after {
+  content: 'OPEN';
+}
